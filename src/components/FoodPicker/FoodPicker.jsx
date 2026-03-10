@@ -28,7 +28,8 @@ export default function FoodPicker() {
     useEffect(() => {
         const loadFavs = async () => {
             const data = await fetchFavourites();
-            setFavourites(data.map(f => f.food));
+            // API may return { food: {...} } or just the food object directly
+            setFavourites(data.map(f => f.food ?? f).filter(Boolean));
         };
         loadFavs();
     }, []);
@@ -96,7 +97,6 @@ export default function FoodPicker() {
 
     return (
         <div className="food-picker-container" style={{ background: COLORS.bg[theme], color: COLORS.text[theme] }}>
-            <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
 
             <header style={{ padding: "20px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: `1px solid ${COLORS.border[theme]}`, position: "sticky", top: 0, background: COLORS.bg[theme], zIndex: 10, width: "100%" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
