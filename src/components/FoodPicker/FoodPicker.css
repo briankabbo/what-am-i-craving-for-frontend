@@ -1,0 +1,143 @@
+/* FoodPicker.css */
+
+.food-picker-container {
+    min-height: 100vh;
+    width: 100%;
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    width: 100%;
+    padding: 32px 20px;
+}
+
+@media (min-width: 768px) {
+    .main-layout {
+        grid-template-columns: 320px 1fr;
+        gap: 40px;
+        padding: 40px;
+        align-items: start;
+    }
+
+    .filter-panel {
+        position: sticky;
+        top: 80px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main-layout {
+        grid-template-columns: 380px 1fr;
+        padding: 48px 64px;
+        gap: 56px;
+    }
+}
+
+.nutrition-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 400px) {
+    .nutrition-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    padding: 16px 20px;
+}
+
+@media (max-width: 360px) {
+    .action-buttons {
+        flex-direction: column;
+    }
+}
+
+.favs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+@media (min-width: 600px) {
+    .favs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .favs-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.wheel-item {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Helper classes for JS styles */
+.pill-button {
+    padding: 6px 13px;
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: 1.5px solid transparent;
+    background: transparent;
+}
+
+.spin-button {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.spin-button:disabled {
+    cursor: not-allowed;
+}
+
+.wheel-container {
+    position: relative;
+    height: 280px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.result-card {
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.nav-link {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: transparent;
+}

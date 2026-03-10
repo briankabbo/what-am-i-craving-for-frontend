@@ -1,4 +1,4 @@
-import FoodPicker from './FoodPicker'
+import FoodPicker from './components/FoodPicker/FoodPicker'
 
 function App() {
     return <FoodPicker />
