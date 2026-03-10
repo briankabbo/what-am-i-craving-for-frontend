@@ -98,7 +98,7 @@ export default function FoodPicker() {
     return (
         <div className="food-picker-container" style={{ background: COLORS.bg[theme], color: COLORS.text[theme] }}>
 
-            <header style={{ padding: "20px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: `1px solid ${COLORS.border[theme]}`, position: "sticky", top: 0, background: COLORS.bg[theme], zIndex: 10, width: "100%" }}>
+            <header style={{ padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: `1px solid ${COLORS.border[theme]}`, position: "sticky", top: 0, background: COLORS.bg[theme], zIndex: 10, width: "100%" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                     <span style={{ fontSize: "22px" }}>🍽️</span>
                     <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "20px", fontWeight: 700 }}>craving?</span>
@@ -164,7 +164,7 @@ export default function FoodPicker() {
                                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "80px", background: `linear-gradient(to bottom, ${COLORS.card[theme]}, transparent)`, zIndex: 3, pointerEvents: "none" }} />
                                 <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "80px", background: `linear-gradient(to top, ${COLORS.card[theme]}, transparent)`, zIndex: 3, pointerEvents: "none" }} />
 
-                                <div style={{ position: "absolute", top: 0, left: 0, right: 0, transform: `translateY(${80 - wheelOffset}px)` }}>
+                                <div style={{ position: "absolute", top: 0, left: 0, right: 0, transform: `translateY(${100 - wheelOffset}px)` }}>
                                     {wheelItems.length > 0 ? wheelItems.map((f, i) => (
                                         <div key={i} className="wheel-item" style={{
                                             opacity: i === wheelItems.length - 3 ? 1 : 0.4,
