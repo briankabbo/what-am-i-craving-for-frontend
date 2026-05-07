@@ -34,7 +34,7 @@ export default function ResultCard({ result, isFav, toggleFav, onTryAgain, theme
                     flex: 1, padding: "12px",
                     border: `1.5px solid ${COLORS.border[theme]}`, color: COLORS.text[theme]
                 }}>
-                    🔄 Try Again
+                     ⟳ Try Again
                 </button>
             </div>
         </div>
