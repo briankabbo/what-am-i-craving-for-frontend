@@ -1,4 +1,4 @@
-const API = "http://localhost:5174/api";
+const API = "https://localhost:7289/api";
 
 // Mock data for fallback when API is down
 const MOCK_FOODS = [
