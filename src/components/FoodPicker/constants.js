@@ -1,15 +1,15 @@
-export const MOODS = ["All", "comfort", "light", "hearty", "spicy", "fresh", "healthy", "cheesy", "sweet"];
-export const CUISINES = ["All", "Italian", "Japanese", "Mexican", "Thai", "South Asian", "American", "Mediterranean", "British"];
+export const MOODS = ["All", "Happy", "Sad", "Tired", "Bored", "Stressed", "Lazy", "Romantic", "Hungry"];
+export const CUISINES = ["All", "Thai", "Korean", "Italian", "Mexican", "Japanese", "South Asian", "American", "French", "Spanish", "Middle Eastern", "Chinese", "Malaysian", "Vietnamese"];
 
 export const MOOD_LABELS = {
-    comfort: "😌 Comfort",
-    light: "🌿 Light",
-    hearty: "💪 Hearty",
-    spicy: "🌶️ Spicy",
-    fresh: "✨ Fresh",
-    healthy: "💚 Healthy",
-    cheesy: "🧀 Cheesy",
-    sweet: "🍯 Sweet",
+    Happy: "😊 Happy",
+    Sad: "😢 Sad",
+    Tired: "😴 Tired",
+    Bored: "😐 Bored",
+    Stressed: "😫 Stressed",
+    Lazy: "🦥 Lazy",
+    Romantic: "❤️ Romantic",
+    Hungry: "😋 Hungry",
     All: "🎲 Any Mood"
 };
 
