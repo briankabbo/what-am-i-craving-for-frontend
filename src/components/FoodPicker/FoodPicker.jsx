@@ -39,9 +39,14 @@ export default function FoodPicker() {
         reset();
     };
 
+    const handleHome = () => {
+        setView("home");
+        reset();
+    };
+
     return (
         <div className="food-picker-container" style={{ background: COLORS.bg[theme], color: COLORS.text[theme] }}>
-            <Header view={view} setView={setView} favouritesCount={favourites.length} theme={theme} />
+            <Header view={view} setView={setView} onHome={handleHome} favouritesCount={favourites.length} theme={theme} />
 
             <main className="main-layout">
                 {(view === "home" || view === "result") && (

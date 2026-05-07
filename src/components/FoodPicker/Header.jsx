@@ -1,9 +1,9 @@
 import { COLORS } from "./constants";
 
-export default function Header({ view, setView, favouritesCount, theme }) {
+export default function Header({ view, setView, onHome, favouritesCount, theme }) {
     return (
         <header style={{ padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: `1px solid ${COLORS.border[theme]}`, position: "sticky", top: 0, background: COLORS.bg[theme], zIndex: 10, width: "100%" }}>
-            <div onClick={() => setView("home")} style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
+            <div onClick={onHome} style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
                 <span style={{ fontSize: "22px" }}>🍽️</span>
                 <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "20px", fontWeight: 700 }}>craving?</span>
             </div>
