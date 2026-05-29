@@ -1,4 +1,4 @@
-const API = "/api";
+const API = import.meta.env.VITE_API_URL || "/api";
 
 const request = async (endpoint, options = {}) => {
     try {
@@ -15,10 +15,10 @@ export const fetchFoods = async (cuisine, mood) => {
     const params = new URLSearchParams();
     if (cuisine !== "All") params.append("cuisine", cuisine);
     if (mood !== "All") params.append("mood", mood);
-    
+
     const queryString = params.toString() ? `?${params.toString()}` : "";
     const data = await request(`/foods${queryString}`) || [];
-    
+
     // Map backend's 'moods' to frontend's 'mood'
     return data.map(food => ({ ...food, mood: food.moods || food.mood || "" }));
 };
