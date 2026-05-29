@@ -17,14 +17,26 @@ export const fetchFoods = async (cuisine, mood) => {
     if (mood !== "All") params.append("mood", mood);
 
     const queryString = params.toString() ? `?${params.toString()}` : "";
-    const data = await request(`/foods${queryString}`) || [];
-
-    // Map backend's 'moods' to frontend's 'mood'
-    return data.map(food => ({ ...food, mood: food.moods || food.mood || "" }));
+    const data = await request(`/foods${queryString}`);
+    if (!Array.isArray(data)) {
+        return [];
+    }
+    
+    // Map backend's 'moods' to frontend's 'mood' and ensure it's a normalized string
+    return data.map(food => {
+        let moodVal = food.moods || food.mood || "";
+        if (Array.isArray(moodVal)) {
+            moodVal = moodVal.join(", ");
+        } else if (typeof moodVal !== "string") {
+            moodVal = String(moodVal);
+        }
+        return { ...food, mood: moodVal };
+    });
 };
 
 export const fetchFavourites = async () => {
-    return await request("/favourites") || [];
+    const data = await request("/favourites");
+    return Array.isArray(data) ? data : [];
 };
 
 export const addFavourite = async (foodId) => {
