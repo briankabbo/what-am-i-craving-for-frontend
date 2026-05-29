@@ -8,7 +8,7 @@ export default function Wheel({ wheelItems, wheelOffset, theme }) {
             <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "80px", background: `linear-gradient(to top, ${COLORS.card[theme]}, transparent)`, zIndex: 3, pointerEvents: "none" }} />
 
             {wheelItems.length > 0 ? (
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, transform: `translateY(${100 - wheelOffset}px)` }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, transform: `translateY(${160 - wheelOffset}px)` }}>
                     {wheelItems.map((f, i) => (
                         <div key={i} className="wheel-item" style={{
                             opacity: i === wheelItems.length - 3 ? 1 : 0.4,
@@ -20,9 +20,11 @@ export default function Wheel({ wheelItems, wheelOffset, theme }) {
                     ))}
                 </div>
             ) : (
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "8px" }}>
-                    <span style={{ fontSize: "48px" }}>🎲</span>
-                    <span style={{ color: COLORS.sub[theme], fontSize: "14px" }}>Hit spin to pick your meal!</span>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "14px", padding: "28px", textAlign: "center" }}>
+                    <span style={{ fontSize: "52px" }}>👀</span>
+                    <span style={{ color: COLORS.sub[theme], fontSize: "15px", lineHeight: 1.6, maxWidth: "300px" }}>
+                        The fate of your next meal is in my hands. No pressure. Spin it. You deserve something delicious.
+                    </span>
                 </div>
             )}
         </div>

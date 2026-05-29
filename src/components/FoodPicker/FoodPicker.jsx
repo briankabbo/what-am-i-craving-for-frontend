@@ -51,35 +51,51 @@ export default function FoodPicker() {
             <main className="main-layout">
                 {(view === "home" || view === "result") && (
                     <>
-                        <FilterPanel 
-                            cuisine={cuisine} setCuisine={setCuisine} 
-                            mood={mood} setMood={setMood} 
-                            onSpin={handleSpin} spinning={spinning} 
-                            foodsCount={foods.length} theme={theme} 
+                        <FilterPanel
+                            cuisine={cuisine} setCuisine={setCuisine}
+                            mood={mood} setMood={setMood}
+                            theme={theme}
                         />
 
-                        <div style={{ width: "100%" }}>
-                            <Wheel wheelItems={wheelItems} wheelOffset={wheelOffset} theme={theme} />
-
-                            {view === "result" && result && (
-                                <ResultCard 
-                                    result={result} 
-                                    isFav={isFavourite(result)} 
-                                    toggleFav={toggleFavourite} 
-                                    onTryAgain={handleTryAgain} 
-                                    theme={theme} 
+                        <div className="wheel-result-container">
+                            {view === "result" && result ? (
+                                <ResultCard
+                                    result={result}
+                                    isFav={isFavourite(result)}
+                                    toggleFav={toggleFavourite}
+                                    onTryAgain={handleTryAgain}
+                                    theme={theme}
                                 />
+                            ) : (
+                                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", width: "100%" }}>
+                                    <Wheel wheelItems={wheelItems} wheelOffset={wheelOffset} theme={theme} />
+                                    <button
+                                        onClick={handleSpin}
+                                        disabled={spinning || foods.length === 0}
+                                        className="spin-button"
+                                        style={{
+                                            background: foods.length === 0 ? COLORS.border[theme] : COLORS.accent,
+                                            color: "#fff",
+                                            transform: spinning ? "scale(0.98)" : "scale(1)",
+                                            boxShadow: foods.length > 0 ? `0 4px 20px ${COLORS.accent}44` : "none",
+                                            maxWidth: "480px",
+                                            width: "100%",
+                                        }}
+                                    >
+                                        {spinning ? "𖦹 Spinning..." : foods.length === 0 ? "No matches found" : "𖦹 Spin"}
+                                    </button>
+                                </div>
                             )}
                         </div>
                     </>
                 )}
 
                 {view === "favourites" && (
-                    <FavouritesList 
-                        favourites={favourites} 
-                        toggleFav={toggleFavourite} 
-                        setView={setView} 
-                        theme={theme} 
+                    <FavouritesList
+                        favourites={favourites}
+                        toggleFav={toggleFavourite}
+                        setView={setView}
+                        theme={theme}
                     />
                 )}
             </main>

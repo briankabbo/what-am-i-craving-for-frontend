@@ -3,9 +3,9 @@ import { COLORS } from "./constants";
 export default function ResultCard({ result, isFav, toggleFav, onTryAgain, theme }) {
     return (
         <div className="result-card" style={{ border: `1px solid ${COLORS.border[theme]}`, background: COLORS.card[theme] }}>
-            <div style={{ padding: "32px", textAlign: "center", borderBottom: `1px solid ${COLORS.border[theme]}` }}>
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "24px 32px", borderBottom: `1px solid ${COLORS.border[theme]}` }}>
                 <div style={{ fontSize: "64px", marginBottom: "12px" }}>{result.emoji}</div>
-                <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 700, marginBottom: "10px" }}>{result.name}</h2>
+                <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 700, marginBottom: "10px", textAlign: "center" }}>{result.name}</h2>
                 <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "8px" }}>
                     <span style={{ fontSize: "13px", padding: "4px 12px", borderRadius: "99px", background: COLORS.accentLight[theme], color: COLORS.accent, fontWeight: 500 }}>{result.cuisine}</span>
                     {result.mood.split(",").map(m => (
