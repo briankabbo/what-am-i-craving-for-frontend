@@ -3,7 +3,7 @@ import { MOODS, CUISINES, MOOD_LABELS, COLORS } from "./constants";
 export default function FilterPanel({ cuisine, setCuisine, mood, setMood, theme }) {
     return (
         <div className="filter-panel">
-            <div style={{ marginBottom: "20px", textAlign: "center" }}>
+            <div style={{ marginBottom: "20px", textAlign: "left" }}>
                 <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 3.5vw, 40px)", fontWeight: 700, lineHeight: 1.15, marginBottom: "8px" }}>
                     What are you<br />craving today?
                 </h1>
@@ -11,8 +11,8 @@ export default function FilterPanel({ cuisine, setCuisine, mood, setMood, theme 
             </div>
 
             <div style={{ marginBottom: "16px" }}>
-                <label style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: COLORS.sub[theme], display: "block", marginBottom: "10px", textAlign: "center" }}>Mood</label>
-                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "8px" }}>
+                <label style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: COLORS.sub[theme], display: "block", marginBottom: "10px", textAlign: "left" }}>Mood</label>
+                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "flex-start", gap: "8px" }}>
                     {MOODS.map(m => (
                         <button key={m} onClick={() => setMood(m)} className="pill-button" style={{
                             border: `1.5px solid ${mood === m ? COLORS.accent : COLORS.border[theme]}`,
@@ -24,8 +24,8 @@ export default function FilterPanel({ cuisine, setCuisine, mood, setMood, theme 
             </div>
 
             <div>
-                <label style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: COLORS.sub[theme], display: "block", marginBottom: "10px", textAlign: "center" }}>Cuisine</label>
-                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "8px" }}>
+                <label style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: COLORS.sub[theme], display: "block", marginBottom: "10px", textAlign: "left" }}>Cuisine</label>
+                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "flex-start", gap: "8px" }}>
                     {CUISINES.map(c => (
                         <button key={c} onClick={() => setCuisine(c)} className="pill-button" style={{
                             border: `1.5px solid ${cuisine === c ? COLORS.accent : COLORS.border[theme]}`,
