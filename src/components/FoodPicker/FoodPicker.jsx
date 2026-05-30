@@ -67,21 +67,19 @@ export default function FoodPicker() {
                                     theme={theme}
                                 />
                             ) : (
-                                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", width: "100%" }}>
-                                    <Wheel wheelItems={wheelItems} wheelOffset={wheelOffset} theme={theme} />
-                                    <button
+                                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", width: "100%", maxWidth: "480px" }}>
+                                     <Wheel wheelItems={wheelItems} wheelOffset={wheelOffset} theme={theme} />
+                                <button
                                         onClick={handleSpin}
                                         disabled={spinning || foods.length === 0}
                                         className="spin-button"
-                                        style={{
-                                            background: foods.length === 0 ? COLORS.border[theme] : COLORS.accent,
-                                            color: "#fff",
-                                            transform: spinning ? "scale(0.98)" : "scale(1)",
-                                            boxShadow: foods.length > 0 ? `0 4px 20px ${COLORS.accent}44` : "none",
-                                            maxWidth: "480px",
-                                            width: "100%",
-                                        }}
-                                    >
+                                    style={{
+                                        background: foods.length === 0 ? COLORS.border[theme] : COLORS.accent,
+                                        color: "#fff",
+                                        transform: spinning ? "scale(0.98)" : "scale(1)",
+                                        boxShadow: foods.length > 0 ? `0 4px 20px ${COLORS.accent}44` : "none",
+                                        width: "100%",
+                                                }}>
                                         {spinning ? "𖦹 Spinning..." : foods.length === 0 ? "No matches found" : "𖦹 Spin"}
                                     </button>
                                 </div>

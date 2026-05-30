@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export const useSpinAnimation = (foods) => {
     const [spinning, setSpinning] = useState(false);
@@ -6,6 +6,14 @@ export const useSpinAnimation = (foods) => {
     const [wheelItems, setWheelItems] = useState([]);
     const [wheelOffset, setWheelOffset] = useState(0);
     const animRef = useRef(null);
+
+    useEffect(() => {
+        if (foods.length === 0) return;
+        const pool = foods.length >= 6 ? foods : [...foods, ...foods, ...foods].slice(0, 6);
+        const preview = Array.from({ length: 8 }, () => pool[Math.floor(Math.random() * pool.length)]);
+        setWheelItems(preview);
+        setWheelOffset(0);
+    }, [foods]);
 
     const spin = (onFinish) => {
         if (spinning || foods.length === 0) return;
@@ -45,8 +53,15 @@ export const useSpinAnimation = (foods) => {
 
     const reset = () => {
         setResult(null);
-        setWheelItems([]);
-        setWheelOffset(0);
+        if (foods.length > 0) {
+            const pool = foods.length >= 6 ? foods : [...foods, ...foods, ...foods].slice(0, 6);
+            const preview = Array.from({ length: 8 }, () => pool[Math.floor(Math.random() * pool.length)]);
+            setWheelItems(preview);
+            setWheelOffset(0);
+        } else {
+            setWheelItems([]);
+            setWheelOffset(0);
+        }
     };
 
     return { spinning, result, wheelItems, wheelOffset, spin, reset };
