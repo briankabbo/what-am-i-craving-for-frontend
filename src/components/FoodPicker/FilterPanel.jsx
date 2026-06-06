@@ -12,7 +12,7 @@ export default function FilterPanel({ cuisine, setCuisine, mood, setMood, theme 
 
             <div style={{ marginBottom: "16px" }}>
                 <label style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: COLORS.sub[theme], display: "block", marginBottom: "10px", textAlign: "left" }}>Mood</label>
-                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "flex-start", gap: "8px" }}>
+                <div className="chip-container" style={{ display: "flex", flexWrap: "wrap", justifyContent: "flex-start", gap: "8px" }}>
                     {MOODS.map(m => (
                         <button key={m} onClick={() => setMood(m)} className="pill-button" style={{
                             border: `1.5px solid ${mood === m ? COLORS.accent : COLORS.border[theme]}`,
@@ -25,7 +25,7 @@ export default function FilterPanel({ cuisine, setCuisine, mood, setMood, theme 
 
             <div>
                 <label style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: COLORS.sub[theme], display: "block", marginBottom: "10px", textAlign: "left" }}>Cuisine</label>
-                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "flex-start", gap: "8px" }}>
+                <div className="chip-container" style={{ display: "flex", flexWrap: "wrap", justifyContent: "flex-start", gap: "8px" }}>
                     {CUISINES.map(c => (
                         <button key={c} onClick={() => setCuisine(c)} className="pill-button" style={{
                             border: `1.5px solid ${cuisine === c ? COLORS.accent : COLORS.border[theme]}`,

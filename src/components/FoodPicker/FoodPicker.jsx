@@ -67,7 +67,7 @@ export default function FoodPicker() {
                                     theme={theme}
                                 />
                             ) : (
-                                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", width: "100%", maxWidth: "480px" }}>
+                                <div className="wheel-wrapper" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", width: "100%", maxWidth: "480px" }}>
                                      <Wheel wheelItems={wheelItems} wheelOffset={wheelOffset} theme={theme} />
                                 <button
                                         onClick={handleSpin}
