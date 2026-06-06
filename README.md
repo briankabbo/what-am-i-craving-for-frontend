@@ -191,4 +191,4 @@ Then open a Pull Request on GitHub against the `main` branch. Describe what you 
 
 ---
 
-### ⚙️ Backend Repository — [what-am-i-craving-for](https://github.com/briankabbo/what-am-i-craving-for)
+### ⚙️ Backend Repository ➜ [what-am-i-craving-for](https://github.com/briankabbo/what-am-i-craving-for)
