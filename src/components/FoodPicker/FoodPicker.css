@@ -147,12 +147,30 @@
 .result-card {
     border-radius: 16px;
     overflow: hidden;
-    height: 400px;
+    min-height: 400px;
+    height: auto;
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 480px;
     animation: fadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.nutrition-item {
+    border-right: 1px solid var(--border-color);
+}
+.nutrition-item.item-3 {
+    border-right: none;
+}
+
+@media (max-width: 400px) {
+    .nutrition-item.item-1 {
+        border-right: none;
+    }
+    .nutrition-item.item-0,
+    .nutrition-item.item-1 {
+        border-bottom: 1px solid var(--border-color);
+    }
 }
 
 .nav-link {
