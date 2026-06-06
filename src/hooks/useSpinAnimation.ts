@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Food } from "../types";
+import type { Food } from "../types";
 
 export const useSpinAnimation = (foods: Food[]) => {
     const [spinning, setSpinning] = useState<boolean>(false);

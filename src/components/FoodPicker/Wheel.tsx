@@ -1,5 +1,5 @@
 import { COLORS } from "./constants";
-import { Food, Theme } from "../../types";
+import type { Food, Theme } from "../../types";
 
 interface WheelProps {
     wheelItems: Food[];

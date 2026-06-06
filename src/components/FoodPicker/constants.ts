@@ -13,7 +13,22 @@ export const MOOD_LABELS: Record<string, string> = {
     All: "🎲 Any Mood"
 };
 
-export const COLORS: any = {
+interface ThemeColors {
+    dark: string;
+    light: string;
+}
+
+interface ColorPalette {
+    accent: string;
+    accentLight: ThemeColors;
+    bg: ThemeColors;
+    card: ThemeColors;
+    border: ThemeColors;
+    text: ThemeColors;
+    sub: ThemeColors;
+}
+
+export const COLORS: ColorPalette = {
     accent: "#e85d26",
     accentLight: {
         dark: "#2a1a0f",

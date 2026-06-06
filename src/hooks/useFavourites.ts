@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchFavourites, addFavourite, removeFavourite } from "../services/api";
-import { Food } from "../types";
+import type { Food } from "../types";
 
 export const useFavourites = () => {
     const [favourites, setFavourites] = useState<Food[]>([]);

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchFoods } from "../services/api";
-import { Food } from "../types";
+import type { Food } from "../types";
 
 export const useFoods = (cuisine: string, mood: string) => {
     const [foods, setFoods] = useState<Food[]>([]);

@@ -10,7 +10,7 @@ import Wheel from "./Wheel";
 import ResultCard from "./ResultCard";
 import FavouritesList from "./FavouritesList";
 import "./FoodPicker.css";
-import { Theme } from "../../types";
+import type { Theme } from "../../types";
 
 export default function FoodPicker() {
     const [cuisine, setCuisine] = useState<string>("All");

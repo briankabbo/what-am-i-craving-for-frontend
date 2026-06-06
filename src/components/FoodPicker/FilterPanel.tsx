@@ -1,5 +1,5 @@
 import { MOODS, CUISINES, MOOD_LABELS, COLORS } from "./constants";
-import { Theme } from "../../types";
+import type { Theme } from "../../types";
 
 interface FilterPanelProps {
     cuisine: string;

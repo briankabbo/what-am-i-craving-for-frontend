@@ -10,5 +10,4 @@ export interface Food {
     protein: number;
     carbs: number;
     fat: number;
-    [key: string]: any;
 }

@@ -1,5 +1,5 @@
 import { COLORS } from "./constants";
-import { Theme } from "../../types";
+import type { Theme } from "../../types";
 
 interface HeaderProps {
     view: string;
