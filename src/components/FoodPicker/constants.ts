@@ -1,7 +1,7 @@
-export const MOODS = ["All", "Happy", "Sad", "Tired", "Bored", "Stressed", "Lazy", "Romantic", "Hungry"];
-export const CUISINES = ["All", "Thai", "Korean", "Italian", "Mexican", "Japanese", "South Asian", "American", "French", "Spanish", "Middle Eastern", "Chinese", "Malaysian", "Vietnamese"];
+export const MOODS: string[] = ["All", "Happy", "Sad", "Tired", "Bored", "Stressed", "Lazy", "Romantic", "Hungry"];
+export const CUISINES: string[] = ["All", "Thai", "Korean", "Italian", "Mexican", "Japanese", "South Asian", "American", "French", "Spanish", "Middle Eastern", "Chinese", "Malaysian", "Vietnamese"];
 
-export const MOOD_LABELS = {
+export const MOOD_LABELS: Record<string, string> = {
     Happy: "😊 Happy",
     Sad: "😢 Sad",
     Tired: "😴 Tired",
@@ -13,7 +13,7 @@ export const MOOD_LABELS = {
     All: "🎲 Any Mood"
 };
 
-export const COLORS = {
+export const COLORS: any = {
     accent: "#e85d26",
     accentLight: {
         dark: "#2a1a0f",

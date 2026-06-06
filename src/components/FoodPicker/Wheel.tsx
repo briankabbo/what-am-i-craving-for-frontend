@@ -1,6 +1,13 @@
 import { COLORS } from "./constants";
+import { Food, Theme } from "../../types";
 
-export default function Wheel({ wheelItems, wheelOffset, theme }) {
+interface WheelProps {
+    wheelItems: Food[];
+    wheelOffset: number;
+    theme: Theme;
+}
+
+export default function Wheel({ wheelItems, wheelOffset, theme }: WheelProps) {
     return (
         <div className="wheel-container" style={{ border: `1px solid ${COLORS.border[theme]}`, background: COLORS.card[theme] }}>
             <div style={{ position: "absolute", top: "50%", left: 0, right: 0, transform: "translateY(-50%)", height: "80px", background: theme === "dark" ? "rgba(232,93,38,0.06)" : "rgba(232,93,38,0.04)", borderTop: `1px solid ${COLORS.accent}15`, borderBottom: `1px solid ${COLORS.accent}15`, zIndex: 2, pointerEvents: "none" }} />

@@ -1,6 +1,14 @@
 import { COLORS } from "./constants";
+import { Food, Theme } from "../../types";
 
-export default function FavouritesList({ favourites, toggleFav, setView, theme }) {
+interface FavouritesListProps {
+    favourites: Food[];
+    toggleFav: (food: Food) => void;
+    setView: (view: string) => void;
+    theme: Theme;
+}
+
+export default function FavouritesList({ favourites, toggleFav, setView, theme }: FavouritesListProps) {
     return (
         <div style={{ gridColumn: "1 / -1" }}>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 700, marginBottom: "8px" }}>Saved Foods</h2>

@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from "react";
+import { Food } from "../types";
 
-export const useSpinAnimation = (foods) => {
-    const [spinning, setSpinning] = useState(false);
-    const [result, setResult] = useState(null);
-    const [wheelItems, setWheelItems] = useState([]);
-    const [wheelOffset, setWheelOffset] = useState(0);
-    const animRef = useRef(null);
+export const useSpinAnimation = (foods: Food[]) => {
+    const [spinning, setSpinning] = useState<boolean>(false);
+    const [result, setResult] = useState<Food | null>(null);
+    const [wheelItems, setWheelItems] = useState<Food[]>([]);
+    const [wheelOffset, setWheelOffset] = useState<number>(0);
+    const animRef = useRef<number | null>(null);
 
     useEffect(() => {
         if (foods.length === 0) return;
@@ -15,7 +16,7 @@ export const useSpinAnimation = (foods) => {
         setWheelOffset(0);
     }, [foods]);
 
-    const spin = (onFinish) => {
+    const spin = (onFinish?: (chosen: Food) => void) => {
         if (spinning || foods.length === 0) return;
         
         setResult(null);
@@ -30,7 +31,7 @@ export const useSpinAnimation = (foods) => {
         const totalFrames = 80;
         const ITEM_H = 80;
         const target = (picks.length - 3) * ITEM_H;
-        const ease = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        const ease = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
         const animate = () => {
             frame++;

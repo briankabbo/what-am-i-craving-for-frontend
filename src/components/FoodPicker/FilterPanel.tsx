@@ -1,6 +1,15 @@
 import { MOODS, CUISINES, MOOD_LABELS, COLORS } from "./constants";
+import { Theme } from "../../types";
 
-export default function FilterPanel({ cuisine, setCuisine, mood, setMood, theme }) {
+interface FilterPanelProps {
+    cuisine: string;
+    setCuisine: (cuisine: string) => void;
+    mood: string;
+    setMood: (mood: string) => void;
+    theme: Theme;
+}
+
+export default function FilterPanel({ cuisine, setCuisine, mood, setMood, theme }: FilterPanelProps) {
     return (
         <div className="filter-panel">
             <div style={{ marginBottom: "20px", textAlign: "left" }}>

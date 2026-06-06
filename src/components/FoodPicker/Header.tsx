@@ -1,6 +1,15 @@
 import { COLORS } from "./constants";
+import { Theme } from "../../types";
 
-export default function Header({ view, setView, onHome, favouritesCount, theme }) {
+interface HeaderProps {
+    view: string;
+    setView: (view: string) => void;
+    onHome: () => void;
+    favouritesCount: number;
+    theme: Theme;
+}
+
+export default function Header({ view, setView, onHome, favouritesCount, theme }: HeaderProps) {
     return (
         <header className="app-header" style={{ padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: `1px solid ${COLORS.border[theme]}`, position: "sticky", top: 0, background: COLORS.bg[theme], zIndex: 10, width: "100%" }}>
             <div onClick={onHome} style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>

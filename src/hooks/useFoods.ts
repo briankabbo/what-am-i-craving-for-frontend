@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { fetchFoods } from "../services/api";
+import { Food } from "../types";
 
-export const useFoods = (cuisine, mood) => {
-    const [foods, setFoods] = useState([]);
-    const [loading, setLoading] = useState(false);
+export const useFoods = (cuisine: string, mood: string) => {
+    const [foods, setFoods] = useState<Food[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
         const load = async () => {

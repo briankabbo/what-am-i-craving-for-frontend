@@ -9,7 +9,7 @@
 
 .main-layout {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 32px;
     width: 100%;
     padding: 16px 20px 32px 20px;
@@ -223,9 +223,7 @@
     .wheel-result-container {
         min-height: 420px;
     }
-}
-
-@media (max-width: 479px) {
+    
     .wheel-container,
     .result-card,
     .wheel-wrapper {

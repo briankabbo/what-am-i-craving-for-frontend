@@ -10,14 +10,15 @@ import Wheel from "./Wheel";
 import ResultCard from "./ResultCard";
 import FavouritesList from "./FavouritesList";
 import "./FoodPicker.css";
+import { Theme } from "../../types";
 
 export default function FoodPicker() {
-    const [cuisine, setCuisine] = useState("All");
-    const [mood, setMood] = useState("All");
-    const [view, setView] = useState("home");
-    const [darkMode, setDarkMode] = useState(() => window.matchMedia("(prefers-color-scheme: dark)").matches);
+    const [cuisine, setCuisine] = useState<string>("All");
+    const [mood, setMood] = useState<string>("All");
+    const [view, setView] = useState<string>("home");
+    const [darkMode, setDarkMode] = useState<boolean>(() => window.matchMedia("(prefers-color-scheme: dark)").matches);
 
-    const theme = darkMode ? "dark" : "light";
+    const theme: Theme = darkMode ? "dark" : "light";
 
     const { foods } = useFoods(cuisine, mood);
     const { favourites, toggleFavourite, isFavourite } = useFavourites();
@@ -25,7 +26,7 @@ export default function FoodPicker() {
 
     useEffect(() => {
         const mq = window.matchMedia("(prefers-color-scheme: dark)");
-        const handler = (e) => setDarkMode(e.matches);
+        const handler = (e: MediaQueryListEvent) => setDarkMode(e.matches);
         mq.addEventListener("change", handler);
         return () => mq.removeEventListener("change", handler);
     }, []);

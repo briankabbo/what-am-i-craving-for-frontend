@@ -1,8 +1,17 @@
 import { COLORS } from "./constants";
+import { Food, Theme } from "../../types";
 
-export default function ResultCard({ result, isFav, toggleFav, onTryAgain, theme }) {
+interface ResultCardProps {
+    result: Food;
+    isFav: boolean;
+    toggleFav: (food: Food) => void;
+    onTryAgain: () => void;
+    theme: Theme;
+}
+
+export default function ResultCard({ result, isFav, toggleFav, onTryAgain, theme }: ResultCardProps) {
     return (
-        <div className="result-card" style={{ border: `1px solid ${COLORS.border[theme]}`, background: COLORS.card[theme], "--border-color": COLORS.border[theme] }}>
+        <div className="result-card" style={{ border: `1px solid ${COLORS.border[theme]}`, background: COLORS.card[theme], "--border-color": COLORS.border[theme] } as React.CSSProperties}>
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "24px 32px", borderBottom: `1px solid ${COLORS.border[theme]}` }}>
                 <div style={{ fontSize: "64px", marginBottom: "12px" }}>{result.emoji}</div>
                 <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 700, marginBottom: "10px", textAlign: "center" }}>{result.name}</h2>
@@ -15,9 +24,9 @@ export default function ResultCard({ result, isFav, toggleFav, onTryAgain, theme
             </div>
             <div className="nutrition-grid">
                 {[["Calories", result.calories, "kcal"], ["Protein", result.protein, ""], ["Carbs", result.carbs, ""], ["Fat", result.fat, ""]].map(([label, val, unit], idx) => (
-                    <div key={label} className={`nutrition-item item-${idx}`} style={{ padding: "16px 12px", textAlign: "center" }}>
-                        <div style={{ fontSize: "18px", fontWeight: 600 }}>{val}<span style={{ fontSize: "11px", color: COLORS.sub[theme] }}>{unit}</span></div>
-                        <div style={{ fontSize: "11px", color: COLORS.sub[theme], marginTop: "2px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{label}</div>
+                    <div key={label as string} className={`nutrition-item item-${idx}`} style={{ padding: "16px 12px", textAlign: "center" }}>
+                        <div style={{ fontSize: "18px", fontWeight: 600 }}>{val as React.ReactNode}<span style={{ fontSize: "11px", color: COLORS.sub[theme] }}>{unit as React.ReactNode}</span></div>
+                        <div style={{ fontSize: "11px", color: COLORS.sub[theme], marginTop: "2px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{label as React.ReactNode}</div>
                     </div>
                 ))}
             </div>
