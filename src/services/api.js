@@ -1,9 +1,8 @@
-import { Food } from "../types";
 import getSessionId from "./session";
 
 const API = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || "/api";
 
-const request = async <T>(endpoint: string, options: RequestInit = {}): Promise<T | null> => {
+const request = async (endpoint, options = {}) => {
     try {
         const headers = {
             "X-Session-Id": getSessionId(),
@@ -18,18 +17,17 @@ const request = async <T>(endpoint: string, options: RequestInit = {}): Promise<
     }
 };
 
-export const fetchFoods = async (cuisine: string, mood: string): Promise<Food[]> => {
+export const fetchFoods = async (cuisine, mood) => {
     const params = new URLSearchParams();
     if (cuisine !== "All") params.append("cuisine", cuisine);
     if (mood !== "All") params.append("mood", mood);
 
     const queryString = params.toString() ? `?${params.toString()}` : "";
-    const data = await request<any[]>(`/foods${queryString}`);
+    const data = await request(`/foods${queryString}`);
     if (!Array.isArray(data)) {
         return [];
     }
     
-    // Map backend's 'moods' to frontend's 'mood' and ensure it's a normalized string
     return data.map(food => {
         let moodVal = food.moods || food.mood || "";
         if (Array.isArray(moodVal)) {
@@ -41,20 +39,20 @@ export const fetchFoods = async (cuisine: string, mood: string): Promise<Food[]>
     });
 };
 
-export const fetchFavourites = async (): Promise<any[]> => {
-    const data = await request<any[]>("/favourites");
+export const fetchFavourites = async () => {
+    const data = await request("/favourites");
     return Array.isArray(data) ? data : [];
 };
 
-export const addFavourite = async (foodId: string | number): Promise<any> => {
-    return await request<any>("/favourites", {
+export const addFavourite = async (foodId) => {
+    return await request("/favourites", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ foodId })
     });
 };
 
-export const removeFavourite = async (id: string | number): Promise<boolean> => {
+export const removeFavourite = async (id) => {
     const res = await fetch(`${API}/favourites/${id}`, {
         method: "DELETE",
         headers: {
@@ -63,4 +61,3 @@ export const removeFavourite = async (id: string | number): Promise<boolean> => 
     });
     return res.ok;
 };
-
